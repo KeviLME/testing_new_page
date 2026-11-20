@@ -2,12 +2,13 @@ import { useState } from 'react'
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const word = 'WELCOME'
 
   return (
     <>
       <header className="navbar">
         <a className="brand" href="#">
-          testing_new_page
+          John
         </a>
         <button
           className="hamburger"
@@ -35,7 +36,25 @@ function App() {
         </nav>
       </header>
       <main>
-        <h1>testing_new_page</h1>
+        <section className="welcome">
+          <div className="top-glow"></div>
+          <div className="light-pool"></div>
+          <h2>
+            {word.split('').map((ch, i) => (
+              <span
+                key={i}
+                className={`letter${ch === 'O' ? ' o' : ''}`}
+                style={{
+                  animationDelay:
+                    ch === 'O' ? `${i * 0.08}s, 1.1s` : `${i * 0.08}s`,
+                }}
+              >
+                {ch}
+              </span>
+            ))}
+          </h2>
+          <div className="floor"></div>
+        </section>
       </main>
     </>
   )
